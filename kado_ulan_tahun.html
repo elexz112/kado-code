@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise Ulang Tahun</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #ff69b4;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ff4500;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff6347;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .kado {
+            width: 200px;
+            height: 200px;
+            background-image: url('https://storage.googleapis.com/a1aa/image/bVnscBvYM0JAI1kUkvGRYWrABR2yXauh0eBbsyc4zpKd3y0JA.jpg');
+            background-size: cover;
+            position: relative;
+            display: none;
+            animation: bounce 1s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Selamat Ulang Tahun!</h1>
+    <input type="text" id="nama" placeholder="Masukkan namamu" />
+    <button onclick="tampilkanPesan()">Klik untuk kejutan!</button>
+    <p id="pesan" style="display:none; font-size: 20px; color: #333;"></p>
+    <div class="kado" id="kado"></div>
+
+    <script>
+        function tampilkanPesan() {
+            const nama = document.getElementById('nama').value;
+            const pesanElement = document.getElementById('pesan');
+            const kadoElement = document.getElementById('kado');
+            if (nama) {
+                pesanElement.textContent = `Selamat ulang tahun, ${nama}! Sehat sehat ya papa , semangat cari duit nya! 🎉🎂`;
+                kadoElement.style.display = 'block'; // Tampilkan kado
+            } else {
+                pesanElement.textContent = "Silakan masukkan nama terlebih dahulu!";
+                kadoElement.style.display = 'none'; // Sembunyikan kado
+            }
+            pesanElement.style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
